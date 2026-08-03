@@ -394,24 +394,24 @@ section.content,
 .hero-display {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 0.88;
-  letter-spacing: -0.055em;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
   text-transform: uppercase;
   color: #F2ECE4;
   margin-bottom: 18px;
-  max-width: 12ch;
+  max-width: 14ch;
   position: relative;
   z-index: 3;
 }
 
 .hero-display-lead {
   display: block;
-  font-size: clamp(3.6rem, 9vw, 7rem);
+  font-size: clamp(2.85rem, 6.2vw, 4.6rem);
 }
 
 .hero-display-sub {
   display: block;
-  font-size: clamp(2.2rem, 5.2vw, 3.9rem);
+  font-size: clamp(2rem, 4.4vw, 3.2rem);
   letter-spacing: -0.04em;
   opacity: 0.92;
 }
@@ -420,12 +420,13 @@ section.content,
   font-family: var(--font-body);
   font-weight: 400;
   color: var(--muted);
-  font-size: clamp(1rem, 1.25vw, 1.12rem);
-  line-height: 1.7;
-  max-width: 36ch;
+  font-size: clamp(1rem, 1.2vw, 1.08rem);
+  line-height: 1.65;
+  max-width: min(52ch, 100%);
   margin-bottom: 24px;
   position: relative;
   z-index: 4;
+  text-wrap: pretty;
 }
 
 .hero-actions {
@@ -4109,10 +4110,13 @@ html[data-theme="light"] .site-footer {
     max-width: none;
   }
   .hero-display-lead {
-    font-size: clamp(3rem, 12vw, 4.4rem);
+    font-size: clamp(2.5rem, 9.5vw, 3.6rem);
   }
   .hero-display-sub {
-    font-size: clamp(1.85rem, 7vw, 2.7rem);
+    font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+  }
+  .hero-blurb {
+    max-width: min(48ch, 100%);
   }
   .hero-carousel-frame {
     max-height: min(52vh, 420px);
