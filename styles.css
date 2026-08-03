@@ -4,7 +4,7 @@
    sticky scroll icon that morphs per section
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Great+Vibes&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
   --bg:          #06090D;
@@ -22,7 +22,7 @@
   --font-display: 'Corben', Georgia, serif;
   --font-script: 'Great Vibes', cursive;
   --font-serif: 'Corben', Georgia, serif;
-  --font-body: 'Corben', Georgia, serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
 
   --max-w: min(1680px, 100%);
   --page-gutter: clamp(20px, 3vw, 40px);
@@ -60,10 +60,15 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
-  line-height: 1.55;
+  font-weight: 400;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  line-height: 1.65;
   min-height: 100vh;
   overflow-x: hidden;
   transition: background 0.35s ease, color 0.35s ease;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body::before {
@@ -153,9 +158,10 @@ button { font-family: inherit; }
 }
 
 .nav-links a {
-  font-size: 0.92rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--muted);
   padding: 12px 16px;
@@ -387,23 +393,36 @@ section.content,
 
 .hero-display {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(3rem, 7.4vw, 5.6rem);
-  line-height: 0.9;
+  font-weight: 700;
+  line-height: 0.88;
   letter-spacing: -0.055em;
   text-transform: uppercase;
   color: #F2ECE4;
   margin-bottom: 18px;
-  max-width: 10.5ch;
+  max-width: 12ch;
   position: relative;
   z-index: 3;
 }
 
+.hero-display-lead {
+  display: block;
+  font-size: clamp(3.6rem, 9vw, 7rem);
+}
+
+.hero-display-sub {
+  display: block;
+  font-size: clamp(2.2rem, 5.2vw, 3.9rem);
+  letter-spacing: -0.04em;
+  opacity: 0.92;
+}
+
 .hero-blurb {
+  font-family: var(--font-body);
+  font-weight: 400;
   color: var(--muted);
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
-  line-height: 1.65;
-  max-width: 32ch;
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.7;
+  max-width: 36ch;
   margin-bottom: 24px;
   position: relative;
   z-index: 4;
@@ -625,8 +644,10 @@ section.content,
   gap: 8px;
   padding: 14px 26px;
   border-radius: 999px;
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
   border: 1px solid transparent;
   transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
@@ -1685,9 +1706,11 @@ html[data-theme="light"] .work-nav-track {
 }
 
 .journey-about-prose p {
+  font-family: var(--font-body);
   color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-size: 1.08rem;
+  font-weight: 400;
+  line-height: 1.78;
 }
 
 .journey-about-prose strong {
@@ -4088,8 +4111,13 @@ html[data-theme="light"] .site-footer {
     margin-right: 0;
   }
   .hero-display {
-    font-size: clamp(2.6rem, 10vw, 3.6rem);
     max-width: none;
+  }
+  .hero-display-lead {
+    font-size: clamp(3rem, 12vw, 4.4rem);
+  }
+  .hero-display-sub {
+    font-size: clamp(1.85rem, 7vw, 2.7rem);
   }
   .hero-carousel-frame {
     max-height: min(52vh, 420px);
