@@ -125,6 +125,88 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* Home hero photo carousel */
+  const carousel = document.querySelector('[data-hero-carousel]');
+  if (carousel) {
+    const slides = Array.from(carousel.querySelectorAll('.hero-carousel-slide'));
+    const dotsWrap = carousel.querySelector('.hero-carousel-dots');
+    const prevBtn = carousel.querySelector('[data-carousel-prev]');
+    const nextBtn = carousel.querySelector('[data-carousel-next]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let index = Math.max(0, slides.findIndex(s => s.classList.contains('is-active')));
+    let timer = null;
+    const intervalMs = 4800;
+
+    slides.forEach((slide) => {
+      const pos = slide.getAttribute('data-pos') || 'center center';
+      slide.style.setProperty('--pos', pos);
+    });
+
+    function goTo(next) {
+      if (!slides.length) return;
+      index = (next + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const on = i === index;
+        slide.classList.toggle('is-active', on);
+        slide.setAttribute('aria-hidden', on ? 'false' : 'true');
+      });
+      if (dotsWrap) {
+        dotsWrap.querySelectorAll('.hero-carousel-dot').forEach((dot, i) => {
+          const on = i === index;
+          dot.classList.toggle('is-active', on);
+          dot.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+      }
+    }
+
+    if (dotsWrap) {
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'hero-carousel-dot' + (i === index ? ' is-active' : '');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Show photo ${i + 1}`);
+        dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        dot.addEventListener('click', () => {
+          goTo(i);
+          restart();
+        });
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { goTo(index - 1); restart(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { goTo(index + 1); restart(); });
+
+    function stop() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function start() {
+      if (reduceMotion || slides.length < 2) return;
+      stop();
+      timer = setInterval(() => goTo(index + 1), intervalMs);
+    }
+
+    function restart() {
+      stop();
+      start();
+    }
+
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('focusin', stop);
+    carousel.addEventListener('focusout', (e) => {
+      if (!carousel.contains(e.relatedTarget)) start();
+    });
+
+    goTo(index);
+    start();
+  }
+
   /* Zigzag traveler: 1 left → 2 right → 3 mid-left → 4 left */
   const route = document.getElementById('process-route');
   const traveler = document.getElementById('process-traveler');
