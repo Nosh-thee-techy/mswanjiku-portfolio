@@ -463,9 +463,9 @@ section.content,
   z-index: 2;
   width: 100%;
   height: auto;
-  max-height: min(82vh, 780px);
+  max-height: min(86vh, 820px);
   object-fit: contain;
-  object-position: center bottom;
+  object-position: center center;
   display: block;
   filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.4));
   image-rendering: auto;
