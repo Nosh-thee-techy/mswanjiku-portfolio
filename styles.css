@@ -1592,7 +1592,7 @@ html[data-theme="light"] .work-nav-track {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  min-height: min(72vh, 720px);
+  min-height: min(78vh, 820px);
   isolation: isolate;
   overflow: visible;
 }
@@ -1600,7 +1600,9 @@ html[data-theme="light"] .work-nav-track {
 .journey-hero-title {
   position: absolute;
   left: 50%;
-  top: 2%;
+  /* Sit under the photo so letters peek around the cutout */
+  bottom: 4%;
+  top: auto;
   width: 100vw;
   transform: translateX(-50%);
   display: flex;
@@ -1620,22 +1622,23 @@ html[data-theme="light"] .work-nav-track {
   font-size: 18vw;
   line-height: 0.8;
   letter-spacing: -0.055em;
-  color: #E23B3B;
+  color: var(--azure);
   text-transform: uppercase;
   white-space: nowrap;
   max-width: none;
   text-align: center;
   user-select: none;
   animation: journeyWordIn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.35), 0 0 48px rgba(78, 176, 232, 0.28);
 }
 
 .journey-hero-img {
   position: relative;
   z-index: 2;
-  width: min(1400px, 118%);
-  max-height: min(82vh, 820px);
+  width: min(1680px, 138%);
+  max-height: min(92vh, 980px);
   margin-top: auto;
+  margin-bottom: clamp(28px, 5vh, 64px);
   align-self: end;
   object-fit: contain;
   object-position: center bottom;
@@ -3623,8 +3626,8 @@ html[data-theme="light"] .journey-hero-bg {
   background-size: auto, 220% 100%, auto;
 }
 html[data-theme="light"] .journey-hero-word {
-  color: #C81E1E;
-  text-shadow: 0 8px 28px rgba(12, 40, 70, 0.12);
+  color: var(--azure-deep);
+  text-shadow: 0 8px 28px rgba(12, 40, 70, 0.12), 0 0 36px rgba(23, 128, 196, 0.18);
 }
 html[data-theme="light"] .journey-hero-img {
   filter: drop-shadow(0 24px 40px rgba(12, 40, 70, 0.18));
@@ -4040,9 +4043,13 @@ html[data-theme="light"] .site-footer {
 @media (max-width: 1100px) {
   .scroll-icon { display: none; }
   .journey-hero { min-height: auto; }
-  .journey-hero-stage { min-height: 440px; }
+  .journey-hero-stage { min-height: 520px; }
   .journey-hero-word { font-size: 17vw; }
-  .journey-hero-img { max-height: 560px; width: min(1200px, 112%); }
+  .journey-hero-img {
+    max-height: min(68vh, 640px);
+    width: min(1400px, 128%);
+    margin-bottom: 36px;
+  }
   .projects-hero {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -4124,9 +4131,13 @@ html[data-theme="light"] .site-footer {
     z-index: 120;
   }
   .hero-display { font-size: clamp(2.2rem, 10vw, 3rem); }
-  .journey-hero-stage { min-height: 340px; }
+  .journey-hero-stage { min-height: 400px; }
   .journey-hero-word { font-size: 16.5vw; }
-  .journey-hero-img { max-height: 420px; width: 112%; }
+  .journey-hero-img {
+    max-height: min(56vh, 500px);
+    width: 124%;
+    margin-bottom: 28px;
+  }
   .journey-about { grid-template-columns: 1fr; }
   .process-map {
     min-height: 0;
