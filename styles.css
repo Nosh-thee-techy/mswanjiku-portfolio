@@ -1557,9 +1557,9 @@ html[data-theme="light"] .work-nav-track {
 .journey-hero {
   position: relative;
   z-index: 1;
-  min-height: min(100vh, 900px);
+  min-height: 0;
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   overflow: hidden;
   margin-bottom: 8px;
 }
@@ -1601,31 +1601,30 @@ html[data-theme="light"] .work-nav-track {
   width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: calc(var(--nav-h) + 28px) var(--page-gutter) 36px;
+  padding: calc(var(--nav-h) + 8px) var(--page-gutter) 20px;
   display: flex;
   flex-direction: column;
-  min-height: inherit;
+  min-height: 0;
 }
 
 .journey-hero-stage {
-  flex: 1;
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
-  min-height: min(78vh, 820px);
+  min-height: 0;
   isolation: isolate;
   overflow: visible;
+  padding-top: 4px;
 }
 
 .journey-hero-title {
   position: absolute;
   left: 50%;
-  /* Sit under the photo so letters peek around the cutout */
-  bottom: 4%;
-  top: auto;
+  top: 52%;
+  bottom: auto;
   width: 100vw;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   z-index: 1;
@@ -1639,9 +1638,8 @@ html[data-theme="light"] .work-nav-track {
 .journey-hero-word {
   font-family: var(--font-display);
   font-weight: 700;
-  /* Near full-bleed width for "JOURNEY"; hero clips any hairline overflow */
-  font-size: 18vw;
-  line-height: 0.8;
+  font-size: clamp(3.5rem, 14vw, 11rem);
+  line-height: 0.85;
   letter-spacing: -0.055em;
   color: var(--azure);
   text-transform: uppercase;
@@ -1656,13 +1654,11 @@ html[data-theme="light"] .work-nav-track {
 .journey-hero-img {
   position: relative;
   z-index: 2;
-  width: min(1680px, 138%);
-  max-height: min(92vh, 980px);
-  margin-top: auto;
-  margin-bottom: clamp(28px, 5vh, 64px);
-  align-self: end;
+  width: min(920px, 88%);
+  max-height: min(52vh, 520px);
+  margin: 0 auto;
   object-fit: contain;
-  object-position: center bottom;
+  object-position: center center;
   filter: drop-shadow(0 28px 50px rgba(0, 0, 0, 0.45));
   animation: journeyPhotoIn 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
 }
@@ -4065,13 +4061,12 @@ html[data-theme="light"] .site-footer {
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1100px) {
   .scroll-icon { display: none; }
-  .journey-hero { min-height: auto; }
-  .journey-hero-stage { min-height: 520px; }
-  .journey-hero-word { font-size: 17vw; }
+  .journey-hero { min-height: 0; }
+  .journey-hero-stage { min-height: 0; }
+  .journey-hero-word { font-size: clamp(3rem, 15vw, 7rem); }
   .journey-hero-img {
-    max-height: min(68vh, 640px);
-    width: min(1400px, 128%);
-    margin-bottom: 36px;
+    max-height: min(46vh, 420px);
+    width: min(760px, 92%);
   }
   .projects-hero {
     grid-template-columns: 1fr;
@@ -4159,12 +4154,11 @@ html[data-theme="light"] .site-footer {
     z-index: 120;
   }
   .hero-display { font-size: clamp(2.2rem, 10vw, 3rem); }
-  .journey-hero-stage { min-height: 400px; }
-  .journey-hero-word { font-size: 16.5vw; }
+  .journey-hero-stage { min-height: 0; }
+  .journey-hero-word { font-size: clamp(2.6rem, 16vw, 5.5rem); }
   .journey-hero-img {
-    max-height: min(56vh, 500px);
-    width: 124%;
-    margin-bottom: 28px;
+    max-height: min(40vh, 340px);
+    width: min(640px, 94%);
   }
   .journey-about { grid-template-columns: 1fr; }
   .process-map {
