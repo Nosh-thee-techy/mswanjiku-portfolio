@@ -1,0 +1,9 @@
+# Local secrets / env (never commit secret API tokens)
+.env
+.env.*
+!.env.example
+
+# IntaSend secret must never be committed. Publishable key may live in intasend-config.js.
+*.pem
+.DS_Store
+Thumbs.db
