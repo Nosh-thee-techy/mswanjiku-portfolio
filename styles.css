@@ -408,6 +408,7 @@ section.content,
 .hero-display-lead {
   display: block;
   font-size: clamp(3.1rem, 6.8vw, 5.1rem);
+  min-height: 1.05em;
 }
 
 .hero-display-sub {
@@ -415,6 +416,30 @@ section.content,
   font-size: clamp(2.2rem, 4.8vw, 3.55rem);
   letter-spacing: -0.04em;
   opacity: 0.92;
+  min-height: 1.05em;
+}
+
+.hero-display [data-typewriter].is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 0.085em;
+  height: 0.82em;
+  margin-left: 0.1em;
+  background: var(--ice);
+  vertical-align: -0.04em;
+  animation: heroCaret 0.85s steps(1, end) infinite;
+}
+
+@keyframes heroCaret {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-display [data-typewriter].is-typing::after {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 .hero-blurb {
