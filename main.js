@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* Home hero typewriter: Systems → Builder */
+  /* Home hero typewriter: Solving Problems → With Code */
   const typeLines = Array.from(document.querySelectorAll('.hero-display [data-typewriter]'));
   if (typeLines.length) {
     const reduceType = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -395,25 +395,25 @@ section.content,
 .hero-display {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
   color: #F2ECE4;
   margin-bottom: 18px;
-  max-width: 14ch;
+  max-width: 18ch;
   position: relative;
   z-index: 3;
 }
 
 .hero-display-lead {
   display: block;
-  font-size: clamp(3.1rem, 6.8vw, 5.1rem);
+  font-size: clamp(2.4rem, 5.4vw, 4rem);
   min-height: 1.05em;
 }
 
 .hero-display-sub {
   display: block;
-  font-size: clamp(2.2rem, 4.8vw, 3.55rem);
+  font-size: clamp(1.85rem, 4vw, 2.9rem);
   letter-spacing: -0.04em;
   opacity: 0.92;
   min-height: 1.05em;
@@ -4321,11 +4321,14 @@ html[data-theme="light"] .site-footer {
   .hero-display {
     max-width: none;
   }
+  .hero-display {
+    max-width: none;
+  }
   .hero-display-lead {
-    font-size: clamp(2.7rem, 10vw, 3.9rem);
+    font-size: clamp(2.1rem, 8.2vw, 3.2rem);
   }
   .hero-display-sub {
-    font-size: clamp(1.9rem, 7vw, 2.75rem);
+    font-size: clamp(1.6rem, 6vw, 2.3rem);
   }
   .hero-blurb {
     max-width: min(48ch, 100%);
