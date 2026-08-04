@@ -407,12 +407,12 @@ section.content,
 
 .hero-display-lead {
   display: block;
-  font-size: clamp(2.85rem, 6.2vw, 4.6rem);
+  font-size: clamp(3.1rem, 6.8vw, 5.1rem);
 }
 
 .hero-display-sub {
   display: block;
-  font-size: clamp(2rem, 4.4vw, 3.2rem);
+  font-size: clamp(2.2rem, 4.8vw, 3.55rem);
   letter-spacing: -0.04em;
   opacity: 0.92;
 }
@@ -4111,10 +4111,10 @@ html[data-theme="light"] .site-footer {
     max-width: none;
   }
   .hero-display-lead {
-    font-size: clamp(2.5rem, 9.5vw, 3.6rem);
+    font-size: clamp(2.7rem, 10vw, 3.9rem);
   }
   .hero-display-sub {
-    font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+    font-size: clamp(1.9rem, 7vw, 2.75rem);
   }
   .hero-blurb {
     max-width: min(48ch, 100%);
