@@ -419,7 +419,7 @@ section.content,
   min-height: 1.05em;
 }
 
-.hero-display [data-typewriter].is-typing::after {
+[data-typewriter].is-typing::after {
   content: "";
   display: inline-block;
   width: 0.085em;
@@ -430,13 +430,19 @@ section.content,
   animation: heroCaret 0.85s steps(1, end) infinite;
 }
 
+.journey-hero-word[data-typewriter].is-typing::after {
+  width: 0.06em;
+  height: 0.72em;
+  box-shadow: 0 0 12px rgba(78, 176, 232, 0.55);
+}
+
 @keyframes heroCaret {
   0%, 45% { opacity: 1; }
   50%, 100% { opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-display [data-typewriter].is-typing::after {
+  [data-typewriter].is-typing::after {
     animation: none;
     opacity: 0;
   }
@@ -1674,6 +1680,7 @@ html[data-theme="light"] .work-nav-track {
   max-width: none;
   text-align: center;
   user-select: none;
+  min-height: 0.85em;
   animation: journeyWordIn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
   text-shadow: 0 10px 40px rgba(0, 0, 0, 0.35), 0 0 48px rgba(78, 176, 232, 0.28);
 }
@@ -3185,13 +3192,26 @@ html[data-theme="light"] .bf-neon-grid {
   text-transform: uppercase;
   color: #F2ECE4;
   margin: 12px 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05em;
 }
 
-.projects-hero-title span {
+.projects-hero-line,
+.projects-hero-accent {
+  display: block;
+  min-height: 1em;
+}
+
+.projects-hero-accent {
   background: linear-gradient(120deg, var(--ice), var(--azure));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.projects-hero-accent.is-typing::after {
+  background: var(--azure);
 }
 
 .projects-hero-blurb {

@@ -125,46 +125,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* Home hero typewriter: Solving Problems → With Code */
-  const typeLines = Array.from(document.querySelectorAll('.hero-display [data-typewriter]'));
-  if (typeLines.length) {
+  /* Typewriter for every page hero */
+  const typeRoots = Array.from(document.querySelectorAll('[data-typewriter-root]'));
+  if (typeRoots.length) {
     const reduceType = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const full = typeLines.map((el) => el.getAttribute('data-text') || el.textContent || '');
 
     function typeLine(el, text) {
       return new Promise((resolve) => {
         el.textContent = '';
         el.classList.add('is-typing');
         let i = 0;
+        const speed = text.length > 18 ? 42 : 70;
         const tick = () => {
           el.textContent = text.slice(0, i);
           i += 1;
           if (i <= text.length) {
-            setTimeout(tick, 70 + Math.random() * 40);
+            setTimeout(tick, speed + Math.random() * 36);
           } else {
             setTimeout(() => {
               el.classList.remove('is-typing');
               resolve();
-            }, 220);
+            }, 180);
           }
         };
         tick();
       });
     }
 
-    async function runTypewriter() {
+    async function runTypewriterRoot(root) {
+      const lines = Array.from(root.querySelectorAll('[data-typewriter]'));
+      if (!lines.length) return;
+      const full = lines.map((el) => el.getAttribute('data-text') || el.textContent || '');
       if (reduceType) {
-        typeLines.forEach((el, i) => { el.textContent = full[i]; });
+        lines.forEach((el, i) => { el.textContent = full[i]; });
         return;
       }
-      typeLines.forEach((el) => { el.textContent = ''; });
-      for (let i = 0; i < typeLines.length; i += 1) {
-        await typeLine(typeLines[i], full[i]);
-        if (i < typeLines.length - 1) await new Promise((r) => setTimeout(r, 180));
+      lines.forEach((el) => { el.textContent = ''; });
+      for (let i = 0; i < lines.length; i += 1) {
+        await typeLine(lines[i], full[i]);
+        if (i < lines.length - 1) await new Promise((r) => setTimeout(r, 140));
       }
     }
 
-    runTypewriter();
+    typeRoots.forEach((root) => { runTypewriterRoot(root); });
   }
 
   /* Home hero photo carousel */
